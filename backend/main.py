@@ -19,7 +19,3 @@ DB: List[Person] = [
 @app.get("/api")
 def read_root():
     return DB
-
-
-
-
