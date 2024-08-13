@@ -1,7 +1,7 @@
 from typing import Union, List
-
 from fastapi import FastAPI
 from pydantic import BaseModel
+import json
 
 app = FastAPI()
 
@@ -16,6 +16,12 @@ DB: List[Person] = [
     Person(id=3, name='Beatriz', age=31)
 ]
 
-@app.get("/api")
+@app.get("/api01")
 def read_root():
     return DB
+
+@app.get("/api02")
+def read_json():
+    with open("data.json", "r") as file:
+        data = json.load(file)
+    return data
